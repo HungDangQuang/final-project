@@ -19,7 +19,6 @@ class customButton: UIControl{
     
     lazy var title: customLabel = {
         let titleLabel = customLabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
     
@@ -28,6 +27,10 @@ class customButton: UIControl{
         return imgview
     }()
     
+    lazy var rightIcon: UIImageView = {
+        let imgview = UIImageView()
+        return imgview
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,20 +47,46 @@ class customButton: UIControl{
     private func setUpViews(){
         addSubview(title)
         addSubview(leftIcon)
+        addSubview(rightIcon)
     }
     
     private func setUpLayout(){
+        
+        title.translatesAutoresizingMaskIntoConstraints = false
+        leftIcon.translatesAutoresizingMaskIntoConstraints = false
+        rightIcon.translatesAutoresizingMaskIntoConstraints = false
+        
+        if leftIcon.image == nil {
+            leftIcon.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        }
+        else {
+            leftIcon.widthAnchor.constraint(equalTo: self.leftIcon.heightAnchor).isActive = true
+        }
+        
+        if rightIcon.image == nil {
+            rightIcon.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        }
+        else {
+            rightIcon.widthAnchor.constraint(equalTo: self.rightIcon.heightAnchor).isActive = true
+        }
+        
         NSLayoutConstraint.activate([
-            // layout of title label
-            title.centerYAnchor.constraint(equalTo: centerYAnchor),
-            leftIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            // Leading: cach trai
+            // --leftIcon--title--rightIcon--
+            
             leftIcon.leadingAnchor.constraint(equalTo: leadingAnchor),
-            leftIcon.trailingAnchor.constraint(equalTo: self.title.leadingAnchor)
+            leftIcon.trailingAnchor.constraint(equalTo: title.leadingAnchor),
+            leftIcon.heightAnchor.constraint(equalTo: heightAnchor),
             
+            title.leadingAnchor.constraint(equalTo: self.leftIcon.trailingAnchor),
+            title.trailingAnchor.constraint(equalTo: self.rightIcon.leadingAnchor),
+            title.heightAnchor.constraint(equalTo: heightAnchor),
             
+            rightIcon.leadingAnchor.constraint(equalTo: self.title.trailingAnchor),
+            rightIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
+            rightIcon.heightAnchor.constraint(equalTo: heightAnchor),
         ])
+        
     }
     
     func setImage(withImage img: UIImage){
@@ -66,6 +95,7 @@ class customButton: UIControl{
     
     func setTitle(withTitle title: String){
         self.title.text = title
+        setUpLayout()
     }
     
     override var intrinsicContentSize: CGSize {
