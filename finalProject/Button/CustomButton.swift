@@ -9,102 +9,178 @@ import Foundation
 import UIKit
 
 class customButton: UIControl{
-
-//    var textColor: String?
-//    var leftIcon: UIImage?
-//    var leftIconColor: UIColor?
-//    var rightIcon: UIImage?
-//    var width: CGFloat?
-//    var height: CGFloat?
     
     lazy var title: customLabel = {
         let titleLabel = customLabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
     
-    lazy var leftIcon: UIImageView = {
-        let imgview = UIImageView()
-        return imgview
+//    lazy var leftIcon: UIImageView = {
+//        let imgview = UIImageView()
+//        imgview.translatesAutoresizingMaskIntoConstraints = false
+//        return imgview
+//    }()
+    
+//    lazy var rightIcon: UIImageView = {
+//        let imgview = UIImageView()
+//
+//        imgview.translatesAutoresizingMaskIntoConstraints = false
+//        return imgview
+//    }()
+    
+    lazy var rightIcon: UIView = {
+        let img = UIView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .scaleAspectFill
+        img.layer.cornerRadius = 5
+        img.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        return img
     }()
     
-    lazy var rightIcon: UIImageView = {
-        let imgview = UIImageView()
-        return imgview
+    lazy var leftIcon: UIView = {
+        let img = UIView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.layer.cornerRadius = 5
+        img.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        return img
+    }()
+    
+    lazy var contentView: UIStackView = {
+        let contentView = UIStackView()
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.axis = .horizontal
+        contentView.distribution = .equalSpacing
+        contentView.alignment = .center
+        contentView.spacing = 0
+        
+
+        [self.leftIcon,
+         self.title,
+         self.rightIcon].forEach { contentView.addArrangedSubview($0) }
+        
+        return contentView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpViews()
         setUpLayout()
-        backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setUpViews(){
-        addSubview(title)
-        addSubview(leftIcon)
-        addSubview(rightIcon)
+       addSubview(contentView)
     }
     
     private func setUpLayout(){
         
-        title.translatesAutoresizingMaskIntoConstraints = false
-        leftIcon.translatesAutoresizingMaskIntoConstraints = false
-        rightIcon.translatesAutoresizingMaskIntoConstraints = false
         
-        if leftIcon.image == nil {
-            leftIcon.widthAnchor.constraint(equalToConstant: 0).isActive = true
-        }
-        else {
-            leftIcon.widthAnchor.constraint(equalTo: self.leftIcon.heightAnchor).isActive = true
-        }
-        
-        if rightIcon.image == nil {
-            rightIcon.widthAnchor.constraint(equalToConstant: 0).isActive = true
-        }
-        else {
-            rightIcon.widthAnchor.constraint(equalTo: self.rightIcon.heightAnchor).isActive = true
-        }
+        self.clearConstraints()
         
         NSLayoutConstraint.activate([
-            
-            // --leftIcon--title--rightIcon--
-            
-            leftIcon.leadingAnchor.constraint(equalTo: leadingAnchor),
-            leftIcon.trailingAnchor.constraint(equalTo: title.leadingAnchor),
-            leftIcon.heightAnchor.constraint(equalTo: heightAnchor),
-            
-            title.leadingAnchor.constraint(equalTo: self.leftIcon.trailingAnchor),
-            title.trailingAnchor.constraint(equalTo: self.rightIcon.leadingAnchor),
-            title.heightAnchor.constraint(equalTo: heightAnchor),
-            
-            rightIcon.leadingAnchor.constraint(equalTo: self.title.trailingAnchor),
-            rightIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
-            rightIcon.heightAnchor.constraint(equalTo: heightAnchor),
+            self.contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            self.contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            self.contentView.topAnchor.constraint(equalTo: topAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
     }
     
-    func setImage(withImage img: UIImage){
-        leftIcon.image = img
+//    func setImageToLeftIcon(withImage img: UIImage){
+//        leftIcon.image = img
+//        leftIcon.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+//        leftIcon.widthAnchor.constraint(equalTo: self.leftIcon.heightAnchor).isActive = true
+//        self.contentView.layoutIfNeeded()
+//    }
+    
+    func setImageToLeftIcon (withImage img: UIImage, tintColor: UIColor, backgroundColor: UIColor){
+        let imgView = UIImageView(image: img)
+        imgView.contentMode = .scaleAspectFit
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        leftIcon.addSubview(imgView)
+        
+        imgView.tintColor = tintColor
+        imgView.backgroundColor = backgroundColor
+        
+        imgView.leadingAnchor.constraint(equalTo: self.leftIcon.leadingAnchor, constant: 15).isActive = true
+        imgView.trailingAnchor.constraint(equalTo: self.leftIcon.trailingAnchor, constant: -15).isActive = true
+        imgView.topAnchor.constraint(equalTo: self.leftIcon.topAnchor, constant: 15).isActive = true
+        imgView.bottomAnchor.constraint(equalTo: self.leftIcon.bottomAnchor, constant: -15).isActive = true
+//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        leftIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        leftIcon.widthAnchor.constraint(equalTo: leftIcon.heightAnchor).isActive = true
+        self.contentView.layoutIfNeeded()
+    }
+    
+//    func setImageToRightIcon(withImage img: UIImage){
+//        rightIcon.image = img
+//        rightIcon.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+//        rightIcon.widthAnchor.constraint(equalTo: self.rightIcon.heightAnchor).isActive = true
+//        self.contentView.layoutIfNeeded()
+//    }
+    
+    
+    func setImageToRightIcon (withImage img: UIImage, tintColor: UIColor, backgroundColor: UIColor){
+        let imgView = UIImageView(image: img)
+        imgView.contentMode = .scaleAspectFit
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        rightIcon.addSubview(imgView)
+        
+        imgView.tintColor = tintColor
+        imgView.backgroundColor = backgroundColor
+        
+        imgView.leadingAnchor.constraint(equalTo: self.rightIcon.leadingAnchor, constant: 15).isActive = true
+        imgView.trailingAnchor.constraint(equalTo: self.rightIcon.trailingAnchor, constant: -15).isActive = true
+        imgView.topAnchor.constraint(equalTo: self.rightIcon.topAnchor, constant: 15).isActive = true
+        imgView.bottomAnchor.constraint(equalTo: self.rightIcon.bottomAnchor, constant: -15).isActive = true
+//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        rightIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        rightIcon.widthAnchor.constraint(equalTo: rightIcon.heightAnchor).isActive = true
+        self.contentView.layoutIfNeeded()
     }
     
     func setTitle(withTitle title: String){
         self.title.text = title
-        setUpLayout()
+        self.contentView.layoutIfNeeded()
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 100, height: 50)
+    func setUpBackgorundColor(hexCode: String){
+        self.backgroundColor = hexStringToUIColor(hex: hexCode)
+    }
+
+    func addDashedBorder(borderColor: CGColor) {
+//        let color = UIColor.black.cgColor
+        
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let frameSize = self.frame.size
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+            
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = borderColor
+        shapeLayer.lineWidth = 2
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        shapeLayer.lineDashPattern = [6,3]
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: self.layer.cornerRadius).cgPath
+            
+        self.layer.addSublayer(shapeLayer)
+        }
+    
+    func drawRoundBorder(){
+        self.layer.masksToBounds = false
+        self.layer.cornerRadius = self.frame.width/2
+        self.clipsToBounds = true
     }
     
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+      }
 }
-
-
 
 
 // Change hexa code to UIColor
@@ -129,4 +205,43 @@ func hexStringToUIColor (hex:String) -> UIColor {
         blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
         alpha: CGFloat(1.0)
     )
+}
+
+extension UIView {
+
+    /**
+     Removes all constrains for this view
+     */
+    func clearConstraints() {
+            for subview in self.subviews {
+                subview.clearConstraints()
+            }
+            self.removeConstraints(self.constraints)
+    }
+    
+//    override var alignmentRectInsets: UIEdgeInsets {
+//            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//        }
+    
+    func showAnimation(_ completionBlock: @escaping () -> Void) {
+          isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                                self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+            }) {  (done) in
+                UIView.animate(withDuration: 0.1,
+                               delay: 0,
+                               options: .curveLinear,
+                               animations: { [weak self] in
+                                    self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                }) { [weak self] (_) in
+                    self?.isUserInteractionEnabled = true
+                    completionBlock()
+                }
+            }
+        }
+    
+    
 }
