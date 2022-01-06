@@ -102,7 +102,7 @@ class customButton: UIControl{
         imgView.contentMode = .scaleAspectFit
         imgView.translatesAutoresizingMaskIntoConstraints = false
         leftIcon.addSubview(imgView)
-        
+        imgView.tag = 100
         imgView.tintColor = tintColor
         imgView.backgroundColor = backgroundColor
         
@@ -113,6 +113,42 @@ class customButton: UIControl{
 //        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         leftIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         leftIcon.widthAnchor.constraint(equalTo: leftIcon.heightAnchor).isActive = true
+        self.contentView.layoutIfNeeded()
+    }
+    
+    func addLeftIcon(img: UIImage) {
+        
+        let imgView = UIImageView(image: img)
+        imgView.contentMode = .scaleAspectFit
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        leftIcon.addSubview(imgView)
+        imgView.tag = 100
+        
+        imgView.leadingAnchor.constraint(equalTo: self.leftIcon.leadingAnchor, constant: 15).isActive = true
+        imgView.trailingAnchor.constraint(equalTo: self.leftIcon.trailingAnchor, constant: -15).isActive = true
+        imgView.topAnchor.constraint(equalTo: self.leftIcon.topAnchor, constant: 15).isActive = true
+        imgView.bottomAnchor.constraint(equalTo: self.leftIcon.bottomAnchor, constant: -15).isActive = true
+//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        leftIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        leftIcon.widthAnchor.constraint(equalTo: leftIcon.heightAnchor).isActive = true
+        self.contentView.layoutIfNeeded()
+    }
+    
+    func addRightIcon(img: UIImage){
+        
+        let imgView = UIImageView(image: img)
+        imgView.contentMode = .scaleAspectFit
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        rightIcon.addSubview(imgView)
+        imgView.tag = 200
+    
+        imgView.leadingAnchor.constraint(equalTo: self.rightIcon.leadingAnchor, constant: 15).isActive = true
+        imgView.trailingAnchor.constraint(equalTo: self.rightIcon.trailingAnchor, constant: -15).isActive = true
+        imgView.topAnchor.constraint(equalTo: self.rightIcon.topAnchor, constant: 15).isActive = true
+        imgView.bottomAnchor.constraint(equalTo: self.rightIcon.bottomAnchor, constant: -15).isActive = true
+//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        rightIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        rightIcon.widthAnchor.constraint(equalTo: rightIcon.heightAnchor).isActive = true
         self.contentView.layoutIfNeeded()
     }
     
@@ -129,7 +165,7 @@ class customButton: UIControl{
         imgView.contentMode = .scaleAspectFit
         imgView.translatesAutoresizingMaskIntoConstraints = false
         rightIcon.addSubview(imgView)
-        
+        imgView.tag = 200
         imgView.tintColor = tintColor
         imgView.backgroundColor = backgroundColor
         
@@ -180,6 +216,30 @@ class customButton: UIControl{
     override class var requiresConstraintBasedLayout: Bool {
         return true
       }
+    
+    func addDashedBorder(dashedPattern: [NSNumber]) {
+//        let color = UIColor.black.cgColor
+        
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let frameSize = self.frame.size
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+            
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+//        if borderColor != nil {
+//            shapeLayer.strokeColor = borderColor
+//        }
+        shapeLayer.strokeColor = self.layer.borderColor
+        shapeLayer.lineWidth = 2
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        shapeLayer.lineDashPattern = dashedPattern
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: self.layer.cornerRadius).cgPath
+        shapeLayer.name = "dash"
+        self.layer.addSublayer(shapeLayer)
+        
+        }
+
 }
 
 

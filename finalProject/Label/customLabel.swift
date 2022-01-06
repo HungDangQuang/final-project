@@ -23,10 +23,10 @@ class customLabel:UILabel {
         self.init(frame: .zero)
     }
         
-    override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
-        super.drawText(in: rect.inset(by: insets))
-    }
+//    override func drawText(in rect: CGRect) {
+//        let insets = UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
+//        super.drawText(in: rect.inset(by: insets))
+//    }
     
     override var intrinsicContentSize: CGSize {
           get {
@@ -39,8 +39,8 @@ class customLabel:UILabel {
               }
               else {
                   var contentSize = super.intrinsicContentSize
-                  contentSize.height += 0
-                  contentSize.width += 0
+                  contentSize.height = 0
+                  contentSize.width = 0
                   return contentSize
               }
               
@@ -59,7 +59,7 @@ class customLabel:UILabel {
 //        self.layoutMargins = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
 //        self.layoutMarginsDidChange()
         textAlignment = .center
-        adjustsFontSizeToFitWidth = true
+//        adjustsFontSizeToFitWidth = true
 //        self.attributedText = attributedString
 //        backgroundColor = .blue
         

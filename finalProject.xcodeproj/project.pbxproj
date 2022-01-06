@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1107EF6F27832A8D00040C96 /* ButtonOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107EF6E27832A8D00040C96 /* ButtonOptionViewModel.swift */; };
+		1107EF7127832AD700040C96 /* OptimizeButtonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107EF7027832AD700040C96 /* OptimizeButtonService.swift */; };
 		110DE23D276734EF0027A839 /* customLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DE23C276734EF0027A839 /* customLabel.swift */; };
+		110E631D2780B32900B0BE3C /* ButtonDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E631C2780B32900B0BE3C /* ButtonDropDown.swift */; };
+		11304EE527759D64005F8258 /* GetButtonConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11304EE427759D63005F8258 /* GetButtonConfigService.swift */; };
+		113AB9ED277B03850000DFC9 /* BorderDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113AB9EC277B03850000DFC9 /* BorderDropDown.swift */; };
 		11462AF5277071C3001D3B0D /* ButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462AF4277071C3001D3B0D /* ButtonConfig.swift */; };
 		11462AF82770788D001D3B0D /* ButtonConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462AF72770788D001D3B0D /* ButtonConfigViewModel.swift */; };
 		11462AFB27707A24001D3B0D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462AFA27707A24001D3B0D /* Box.swift */; };
 		11462AFD2770892E001D3B0D /* ButtonConfigDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462AFC2770892E001D3B0D /* ButtonConfigDatasource.swift */; };
 		11462B0027708AB7001D3B0D /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462AFF27708AB7001D3B0D /* ButtonCollectionViewCell.swift */; };
+		11C46EBC2783083300DDC89E /* buttonOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C46EBB2783083300DDC89E /* buttonOption.swift */; };
 		11CB9C3D27634ECE00904A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9C3C27634ECE00904A91 /* AppDelegate.swift */; };
 		11CB9C3F27634ECE00904A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9C3E27634ECE00904A91 /* SceneDelegate.swift */; };
 		11CB9C4127634ECE00904A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9C4027634ECE00904A91 /* ViewController.swift */; };
@@ -20,15 +26,25 @@
 		11CB9C4627634ED300904A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CB9C4527634ED300904A91 /* Assets.xcassets */; };
 		11CB9C4927634ED300904A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CB9C4727634ED300904A91 /* LaunchScreen.storyboard */; };
 		11CB9C522763504200904A91 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9C512763504200904A91 /* CustomButton.swift */; };
+		11F816C327804E8800ECF498 /* CustomButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11304EE62775ADC8005F8258 /* CustomButtonViewController.swift */; };
+		11FB12402779652900B06DF4 /* titleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB123F2779652900B06DF4 /* titleLabel.swift */; };
+		11FB124327799EA200B06DF4 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB124227799EA200B06DF4 /* DropDown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1107EF6E27832A8D00040C96 /* ButtonOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOptionViewModel.swift; sourceTree = "<group>"; };
+		1107EF7027832AD700040C96 /* OptimizeButtonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizeButtonService.swift; sourceTree = "<group>"; };
 		110DE23C276734EF0027A839 /* customLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customLabel.swift; sourceTree = "<group>"; };
+		110E631C2780B32900B0BE3C /* ButtonDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDropDown.swift; sourceTree = "<group>"; };
+		11304EE427759D63005F8258 /* GetButtonConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetButtonConfigService.swift; sourceTree = "<group>"; };
+		11304EE62775ADC8005F8258 /* CustomButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonViewController.swift; sourceTree = "<group>"; };
+		113AB9EC277B03850000DFC9 /* BorderDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderDropDown.swift; sourceTree = "<group>"; };
 		11462AF4277071C3001D3B0D /* ButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfig.swift; sourceTree = "<group>"; };
 		11462AF72770788D001D3B0D /* ButtonConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfigViewModel.swift; sourceTree = "<group>"; };
 		11462AFA27707A24001D3B0D /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		11462AFC2770892E001D3B0D /* ButtonConfigDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfigDatasource.swift; sourceTree = "<group>"; };
 		11462AFF27708AB7001D3B0D /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		11C46EBB2783083300DDC89E /* buttonOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonOption.swift; sourceTree = "<group>"; };
 		11CB9C3927634ECE00904A91 /* finalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CB9C3C27634ECE00904A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CB9C3E27634ECE00904A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +54,8 @@
 		11CB9C4827634ED300904A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11CB9C4A27634ED300904A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CB9C512763504200904A91 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		11FB123F2779652900B06DF4 /* titleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleLabel.swift; sourceTree = "<group>"; };
+		11FB124227799EA200B06DF4 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +73,25 @@
 			isa = PBXGroup;
 			children = (
 				110DE23C276734EF0027A839 /* customLabel.swift */,
+				11FB123F2779652900B06DF4 /* titleLabel.swift */,
 			);
 			path = Label;
+			sourceTree = "<group>";
+		};
+		11304EE327758896005F8258 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				11304EE427759D63005F8258 /* GetButtonConfigService.swift */,
+				1107EF7027832AD700040C96 /* OptimizeButtonService.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		11462AF327707197001D3B0D /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				11462AF4277071C3001D3B0D /* ButtonConfig.swift */,
+				11C46EBB2783083300DDC89E /* buttonOption.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -72,6 +101,7 @@
 			children = (
 				11462AF72770788D001D3B0D /* ButtonConfigViewModel.swift */,
 				11462AFC2770892E001D3B0D /* ButtonConfigDatasource.swift */,
+				1107EF6E27832A8D00040C96 /* ButtonOptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -84,18 +114,19 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		11462AFE27708A8C001D3B0D /* CollectionViewCell */ = {
+		11462AFE27708A8C001D3B0D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				11462AFF27708AB7001D3B0D /* ButtonCollectionViewCell.swift */,
 			);
-			path = CollectionViewCell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		11462B012771AB23001D3B0D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				11CB9C4027634ECE00904A91 /* ViewController.swift */,
+				11304EE62775ADC8005F8258 /* CustomButtonViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,13 +150,15 @@
 		11CB9C3B27634ECE00904A91 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
+				11304EE327758896005F8258 /* NetworkService */,
 				11462B012771AB23001D3B0D /* View */,
-				11462AFE27708A8C001D3B0D /* CollectionViewCell */,
+				11462AFE27708A8C001D3B0D /* Cells */,
 				11462AF9277079C6001D3B0D /* Utilities */,
 				11462AF6277077CF001D3B0D /* ViewModel */,
 				11462AF327707197001D3B0D /* DataModel */,
 				110DE23A276734BE0027A839 /* Label */,
 				11CB9C502763502B00904A91 /* Button */,
+				11FB124127799E7E00B06DF4 /* DropDown */,
 				11CB9C3C27634ECE00904A91 /* AppDelegate.swift */,
 				11CB9C3E27634ECE00904A91 /* SceneDelegate.swift */,
 				11CB9C4227634ECE00904A91 /* Main.storyboard */,
@@ -142,6 +175,16 @@
 				11CB9C512763504200904A91 /* CustomButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		11FB124127799E7E00B06DF4 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				11FB124227799EA200B06DF4 /* DropDown.swift */,
+				113AB9EC277B03850000DFC9 /* BorderDropDown.swift */,
+				110E631C2780B32900B0BE3C /* ButtonDropDown.swift */,
+			);
+			path = DropDown;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,15 +258,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1107EF7127832AD700040C96 /* OptimizeButtonService.swift in Sources */,
 				11CB9C522763504200904A91 /* CustomButton.swift in Sources */,
 				110DE23D276734EF0027A839 /* customLabel.swift in Sources */,
+				11FB12402779652900B06DF4 /* titleLabel.swift in Sources */,
+				1107EF6F27832A8D00040C96 /* ButtonOptionViewModel.swift in Sources */,
+				11F816C327804E8800ECF498 /* CustomButtonViewController.swift in Sources */,
 				11CB9C4127634ECE00904A91 /* ViewController.swift in Sources */,
 				11462AF82770788D001D3B0D /* ButtonConfigViewModel.swift in Sources */,
 				11CB9C3D27634ECE00904A91 /* AppDelegate.swift in Sources */,
+				11304EE527759D64005F8258 /* GetButtonConfigService.swift in Sources */,
+				110E631D2780B32900B0BE3C /* ButtonDropDown.swift in Sources */,
 				11462AFB27707A24001D3B0D /* Box.swift in Sources */,
 				11CB9C3F27634ECE00904A91 /* SceneDelegate.swift in Sources */,
 				11462AFD2770892E001D3B0D /* ButtonConfigDatasource.swift in Sources */,
+				113AB9ED277B03850000DFC9 /* BorderDropDown.swift in Sources */,
+				11C46EBC2783083300DDC89E /* buttonOption.swift in Sources */,
 				11462B0027708AB7001D3B0D /* ButtonCollectionViewCell.swift in Sources */,
+				11FB124327799EA200B06DF4 /* DropDown.swift in Sources */,
 				11462AF5277071C3001D3B0D /* ButtonConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +429,6 @@
 				INFOPLIST_FILE = finalProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,7 +455,6 @@
 				INFOPLIST_FILE = finalProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

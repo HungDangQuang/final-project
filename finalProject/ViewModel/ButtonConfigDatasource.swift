@@ -27,7 +27,7 @@ class ButtonConfigDatasource<CELL : UICollectionViewCell,T> : NSObject, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! CELL
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CELL
         let item = self.items[indexPath.row]
         self.configureCell(cell, item)
         return cell

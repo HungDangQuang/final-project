@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        self.view.backgroundColor = .white
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right:20)
         layout.itemSize = CGSize(width: view.frame.width/3, height: view.frame.height/15)
@@ -36,6 +36,15 @@ class ViewController: UIViewController {
             ])
 
         callToViewModelForUIUpdate()
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(pushToNextVC))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func pushToNextVC(){
+        let customButtonVC = CustomButtonViewController()
+        navigationController?.pushViewController(customButtonVC, animated: true)
     }
     
     func callToViewModelForUIUpdate(){
@@ -44,13 +53,13 @@ class ViewController: UIViewController {
         
         self.datasource = ButtonConfigDatasource(cellIdentifier: "ButtonCollectionViewCell", items: self.buttonConfigViewModel.config.value, configureCell: { cell,res  in
             
-            if res.width != nil {
-                print("not 1 nil")
-            }
-            
-            if res.height != nil {
-                
-            }
+//            if res.width != nil {
+//                print("not 1 nil")
+//            }
+//
+//            if res.height != nil {
+//
+//            }
             
             if res.leftIconName != nil {
                 let origimage = UIImage(named: res.leftIconName!)?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
