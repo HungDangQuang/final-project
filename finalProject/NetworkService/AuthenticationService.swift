@@ -6,3 +6,28 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseDatabase
+
+class AuthenticationService {
+    
+    func authenticate(email: String, password: String, completion: @escaping(Int, String)->()){
+        Auth.auth().signIn(withEmail: email, password: password) { res, err in
+            if let err = err {
+                print(err.localizedDescription)
+                completion(-1, "Something went wrong, please try again!")
+            }
+            if Auth.auth().currentUser != nil {
+                completion(1, "Successfully login")
+            }
+            else {
+                completion(-1, "Email or password is wrong")
+            }
+        }
+    }
+    
+    func removeChild(completion:@escaping()->()){
+        let ref = Database.database().reference()
+        ref.child(UIDevice.current.identifierForVendor!.uuidString).removeValue()
+    }
+}

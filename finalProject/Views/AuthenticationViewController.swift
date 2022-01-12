@@ -31,15 +31,10 @@ class AuthenticationViewController: UIViewController {
         return icon
     }()
     
-    lazy var usernameTextField: UITextField = {
-       let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .line
+    lazy var usernameTextField: TextFieldWithPadding = {
+       let textField = TextFieldWithPadding()
         textField.placeholder = "Username"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-        
+        textField.setUpTextField()
         return textField
     }()
     
@@ -67,15 +62,11 @@ class AuthenticationViewController: UIViewController {
         return icon
     }()
     
-    lazy var pwdTextField: UITextField = {
-       let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .line
+    lazy var pwdTextField: TextFieldWithPadding = {
+       let textField = TextFieldWithPadding()
         textField.placeholder = "Password"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-        
+        textField.isSecureTextEntry = true
+        textField.setUpTextField()
         return textField
     }()
     
@@ -131,42 +122,13 @@ class AuthenticationViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-//        configureLogo()
-//        configureUsernameStackView()
-//        configurePwdStackView()
-//        configureLoginButton()
-//        configuresSynButton()
-        
+        configureLogo()
+        configureUsernameStackView()
+        configurePwdStackView()
+        configureLoginButton()
+        configuresSynButton()
+    
         authenticationViewModel = AuthenticationViewModel()
-        let ref = Database.database().reference()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        do {
-            let arr = try managedContext.fetch(CustomButton.fetchRequest())
-            var count = 1
-            ref.child(UIDevice.current.identifierForVendor!.uuidString).removeValue()
-            for element in arr {
-                let buttonRef = ref.child(UIDevice.current.identifierForVendor!.uuidString).child("Button\(count)")
-                count += 1
-                let object : [String : Any] = [
-                    "buttonText" : element.button_text,
-                    "buttonTextColor" : element.button_text_color,
-                    "buttonBackgroundColor" : element.button_background_color,
-                    "buttonWidth" : element.button_width,
-                    "buttonHeight": element.button_height,
-                    "border": element.border,
-                    "borderDashPattern" : element.border_dash_pattern,
-                    "borderColor" : element.border_color,
-                    "borderRadius" : element.border_radius,
-                    "leftIcon" : element.left_icon,
-                    "rightIcon" : element.right_icon
-                ]
-                buttonRef.setValue(object)
-            }
-        }
-        catch {
-            print("Could not fetch data")
-        }
     }
     
     func configureLogo(){
@@ -183,12 +145,12 @@ class AuthenticationViewController: UIViewController {
         self.view.addSubview(usernameStackView)
         NSLayoutConstraint.activate([
             usernameStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            usernameStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50),
-            usernameStackView.widthAnchor.constraint(equalToConstant: 200),
-            usernameTextField.widthAnchor.constraint(equalToConstant: 150),
+            usernameStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 30),
+            usernameStackView.widthAnchor.constraint(equalToConstant: 250),
+            usernameTextField.widthAnchor.constraint(equalToConstant: 220),
             usernameTextField.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
             userIcon.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
-            usernameStackView.heightAnchor.constraint(equalToConstant: 40),
+            usernameStackView.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -197,11 +159,11 @@ class AuthenticationViewController: UIViewController {
         NSLayoutConstraint.activate([
             pwdStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             pwdStackView.topAnchor.constraint(equalTo: usernameStackView.bottomAnchor, constant: 50),
-            pwdStackView.widthAnchor.constraint(equalToConstant: 200),
-            pwdTextField.widthAnchor.constraint(equalToConstant: 150),
+            pwdStackView.widthAnchor.constraint(equalToConstant: 250),
+            pwdTextField.widthAnchor.constraint(equalToConstant: 220),
             pwdTextField.heightAnchor.constraint(equalTo: pwdStackView.heightAnchor),
             pwdIcon.heightAnchor.constraint(equalTo: pwdStackView.heightAnchor),
-            pwdStackView.heightAnchor.constraint(equalToConstant: 40),
+            pwdStackView.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -210,7 +172,7 @@ class AuthenticationViewController: UIViewController {
         NSLayoutConstraint.activate([
             loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: pwdStackView.bottomAnchor, constant: 50),
-            loginButton.widthAnchor.constraint(equalToConstant: 200),
+            loginButton.widthAnchor.constraint(equalToConstant: 250),
             loginButton.heightAnchor.constraint(equalToConstant: 35),
         ])
         let tap = UITapGestureRecognizer(target: self, action: #selector(login))
@@ -226,6 +188,8 @@ class AuthenticationViewController: UIViewController {
             synButton.heightAnchor.constraint(equalToConstant: 35),
         ])
         self.synButton.alpha = 0
+        let tap = UITapGestureRecognizer(target: self, action: #selector(synData))
+        synButton.addGestureRecognizer(tap)
     }
     
     @objc func login(){
@@ -267,6 +231,12 @@ class AuthenticationViewController: UIViewController {
                 }
             }
             
+        }
+    }
+    
+    @objc func synData(){
+        synButton.showAnimation {
+            self.authenticationViewModel.synData()
         }
     }
     

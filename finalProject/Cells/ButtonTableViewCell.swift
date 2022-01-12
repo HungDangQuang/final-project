@@ -8,16 +8,33 @@
 import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    static let identifier = "ButtonTableViewCell"
+    
+    let button = customButton()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUpView()
+        setUpLayout()
     }
+    
+    func setUpView(){
+        addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setUpLayout() {
+        NSLayoutConstraint.activate([
 
+            button.centerYAnchor.constraint(equalTo: centerYAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            
+        ])
+    }
+    
+    
 }

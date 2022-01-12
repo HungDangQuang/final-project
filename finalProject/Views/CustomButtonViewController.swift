@@ -698,7 +698,7 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         
         NSLayoutConstraint.activate([
             addButton.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
-            addButton.topAnchor.constraint(equalTo: resultView.bottomAnchor),
+            addButton.topAnchor.constraint(equalTo: resultView.bottomAnchor, constant: 20),
             addButton.widthAnchor.constraint(equalToConstant: 150),
             addButton.heightAnchor.constraint(equalToConstant: 50),
         ])

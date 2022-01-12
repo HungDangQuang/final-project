@@ -8,26 +8,25 @@
 import Foundation
 
 class ButtonConfigService: NSObject {
-    func getButtonConfigService(completionHandler: @escaping([ButtonConfig])->()){
-        let configArr: [ButtonConfig] = [ButtonConfig(leftIconName: nil, rightIconName: "exit3", title: "button", textColor: "#5545DA", backgroundColor: "#8D87F4", iconBackgroundColor: "#8D87F4", iconTintcolor: "#5545DA", border: false, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: nil),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "exit", title: "button", textColor: "#F3F1F9", backgroundColor: "#8D87F4", iconBackgroundColor: "#8D87F4", iconTintcolor: "#F3F1F9", border: false, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: nil),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "exit", title: "button", textColor: "#F3F1F9", backgroundColor: "#8D87F4", iconBackgroundColor: "#5545DA", iconTintcolor: "#FFFFFF", border: false, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: nil),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "cancel", title: "button", textColor: "#F3F1F9", backgroundColor: "#8D87F4", iconBackgroundColor: "#8D87F4", iconTintcolor: "#F3F1F9", border: false, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: nil),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "cancel", title: nil, textColor: nil, backgroundColor: "#4EC2BE", iconBackgroundColor: "#F3F1F9", iconTintcolor: "#4EC2BE", border: true, cornerRadius:0, borderWidth: 1, width: nil, height: nil, isRounded: true, borderColor: "#4EC2BE"),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "exit", title: nil, textColor: nil, backgroundColor: "#4EC2BE", iconBackgroundColor: "#F3F1F9", iconTintcolor: "#4EC2BE", border: false, cornerRadius: 0, borderWidth: 1, width: nil, height: nil, isRounded: true, borderColor: "#4EC2BE"),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: "delete", title: nil, textColor: nil, backgroundColor: nil, iconBackgroundColor: "#FFFFFF", iconTintcolor: "#70AAF8", border: true, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: "#70AAF8"),
-                                         
-                                         ButtonConfig(leftIconName: "less", rightIconName: "greater", title: "button", textColor: "#F3F1F9", backgroundColor: "#4FC3C0", iconBackgroundColor: "#4FC3C0", iconTintcolor: "#F3F1F9", border: false, cornerRadius: 5, borderWidth: 0, width: nil, height: nil, isRounded: false, borderColor: nil),
-                                         
-                                         ButtonConfig(leftIconName: nil, rightIconName: nil, title: "button", textColor: "#6AA7F6", backgroundColor: "#F3F1F9", iconBackgroundColor: nil, iconTintcolor: nil, border: false, cornerRadius: 5, borderWidth: 2, width: nil, height: nil, isRounded: false, borderColor: "#6AA7F6")
-                                         
-        ]
+    
+    func getButtonService(completionHandler: @escaping([ButtonOption])->()){
+        
+        let configArr : [ButtonOption] = [ButtonOption(buttonText: "Button", buttonTextColor: "#5545DA", buttonBackgroundColor: "#8D87F4", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: nil, rightIcon: "exit3", tintColor: "#5545DA", iconBackgroundColor: "#8D87F4"),
+                                          
+            ButtonOption(buttonText: "Button", buttonTextColor: "#F3F1F9", buttonBackgroundColor: "#8D87F4", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: nil, rightIcon: "exit", tintColor: "#F3F1F9", iconBackgroundColor: nil),
+        
+            ButtonOption(buttonText: "Button", buttonTextColor: "#F3F1F9", buttonBackgroundColor: "#8D87F4", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: nil, rightIcon: "cancel", tintColor: "#FFFFFF", iconBackgroundColor: nil),
+            
+            ButtonOption(buttonText: "Button", buttonTextColor: "#F3F1F9", buttonBackgroundColor: "#8D87F4", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: nil, rightIcon: "exit", tintColor: "#F3F1F9", iconBackgroundColor: "#5545DA"),
+        
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#4EC2BE", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 22, leftIcon: "cancel", rightIcon: nil, tintColor: "#4EC2BE", iconBackgroundColor: "#F3F1F9"),
+            
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#4EC2BE", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 22, leftIcon: "exit", rightIcon: nil, tintColor: "#4EC2BE", iconBackgroundColor: "#F3F1F9"),
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#FFFFFF", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: "6,3", borderColor: "#70AAF8", borderRadius: 5, leftIcon: "delete", rightIcon: nil, tintColor: "#70AAF8", iconBackgroundColor: "#FFFFFF"),
+        
+            ButtonOption(buttonText: "Button", buttonTextColor: "#F3F1F9", buttonBackgroundColor: "#4FC3C0", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: "less", rightIcon: "greater", tintColor: "#F3F1F9", iconBackgroundColor: nil),
+        
+            ButtonOption(buttonText: "Button", buttonTextColor: "#6AA7F6", buttonBackgroundColor: "#F3F1F9", buttonWidth: nil, buttonHeight: nil, border: 1, borderDashPattern: nil, borderColor: "#6AA7F6", borderRadius: 5, leftIcon: nil, rightIcon: nil, tintColor: nil, iconBackgroundColor: nil)]
         
         completionHandler(configArr)
     }

@@ -16,6 +16,8 @@ class ButtonCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpView()
         setUpLayout()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ShowButtonAnimation))
+        self.button.addGestureRecognizer(tap)
     }
     
     required init?(coder: NSCoder) {
@@ -38,5 +40,11 @@ class ButtonCollectionViewCell: UICollectionViewCell {
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             button.topAnchor.constraint(equalTo: self.topAnchor)
         ])
+    }
+    
+    @objc func ShowButtonAnimation(){
+        button.showAnimation {
+            
+        }
     }
 }

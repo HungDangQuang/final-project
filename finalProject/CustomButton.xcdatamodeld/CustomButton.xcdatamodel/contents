@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="CustomButton" representedClassName="CustomButton" syncable="YES">
+        <attribute name="border" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="border_color" optional="YES" attributeType="String"/>
+        <attribute name="border_dash_pattern" optional="YES" attributeType="String"/>
+        <attribute name="border_radius" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="button_background_color" optional="YES" attributeType="String"/>
+        <attribute name="button_height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="button_text" optional="YES" attributeType="String"/>
+        <attribute name="button_text_color" optional="YES" attributeType="String"/>
+        <attribute name="button_width" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="left_icon" optional="YES" attributeType="String"/>
+        <attribute name="right_icon" optional="YES" attributeType="String"/>
+        <attribute name="tint_color" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CustomButton" positionX="-63" positionY="-18" width="128" height="209"/>
+    </elements>
 </model>
