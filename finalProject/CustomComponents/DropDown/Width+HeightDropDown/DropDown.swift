@@ -47,7 +47,8 @@ class dropDownBtn: customButton, dropDownProtocol {
         dropView.translatesAutoresizingMaskIntoConstraints = false
         self.translatesAutoresizingMaskIntoConstraints = false
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        configureTextfield()
+        textfield.setUpTextField()
+        configDropdownButton()
     }
     
     override func didMoveToSuperview() {
@@ -67,11 +68,14 @@ class dropDownBtn: customButton, dropDownProtocol {
         textfield.alpha = 0
     }
     
-    func configureTextfield(){
-        textfield.borderStyle = .line
-        textfield.backgroundColor = .white
-        textfield.layer.borderWidth = 1
-        textfield.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
+    func configDropdownButton(){
+        layer.borderWidth = 1
+        layer.borderColor = hexStringToCGColor(hex: "#DADADA")
+        let origimage = UIImage(named:"dropdown")?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
+        addRightIcon(img: tintedImage!)
+        addIconBackgroundColor(bgColor: "#FFFFFF")
+        addTintColor(tintColor: "#000000")
     }
     
     var isOpen = false
@@ -135,89 +139,5 @@ class dropDownBtn: customButton, dropDownProtocol {
             dropView.dropDownOptions = ["Dynamic"]
         }
         dropView.tableView.reloadData()
-    }
-}
-
-
-class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
-    
-    var dropDownOptions = [String]()
-    
-    var tableView = UITableView()
-    
-    var delegate : dropDownProtocol!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        tableView.backgroundColor = UIColor.white
-        self.backgroundColor = UIColor.white
-        tableView.register(DropDownTableViewCell.self, forCellReuseIdentifier: DropDownTableViewCell.identifier)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addSubview(tableView)
-        
-        tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dropDownOptions.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DropDownTableViewCell.identifier, for: indexPath) as! DropDownTableViewCell
-        cell.lblContent.text = dropDownOptions[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
-        self.tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-}
-
-
-class DropDownTableViewCell: UITableViewCell {
-    static let identifier = "DropDownTableViewCell"
-    let lblContent = customLabel()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUpView()
-        setUpLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    func setUpView(){
-        lblContent.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(lblContent)
-//        self.backgroundColor = .red
-    }
-    
-    func setUpLayout() {
-        NSLayoutConstraint.activate([
-            lblContent.centerXAnchor.constraint(equalTo: centerXAnchor),
-            lblContent.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
     }
 }

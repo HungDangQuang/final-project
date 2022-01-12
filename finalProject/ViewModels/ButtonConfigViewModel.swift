@@ -9,16 +9,16 @@ import Foundation
 
 class ButtonConfigViewModel {
     
-    var config: Box<[ButtonConfig]> = Box([])
+    var arrButton : Box<[ButtonOption]> = Box([])
     private var getConfigButtonService = ButtonConfigService()
     
     init(){
-        fetchConfig()
+        fetchButton()
     }
     
-    func fetchConfig(){
-        self.getConfigButtonService.getButtonConfigService { res in
-            self.config.value = res
+    func fetchButton(){
+        self.getConfigButtonService.getButtonService { res in
+            self.arrButton.value = res
         }
     }
 }

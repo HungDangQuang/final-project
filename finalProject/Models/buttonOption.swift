@@ -20,4 +20,5 @@ struct ButtonOption {
     let leftIcon: String?
     let rightIcon: String?
     let tintColor: String?
+    let iconBackgroundColor: String?
 }

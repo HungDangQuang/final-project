@@ -1,8 +1,8 @@
 
 import UIKit
+import CoreData
 
 class CustomButtonViewController: UIViewController, updateUI, updateTintColorProtocol, UITextFieldDelegate, sendImageNameProtocol, updateButtonProtocol {
-    
     
     var buttonText: String?
     var buttonTextColor: String?
@@ -36,26 +36,19 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // button text
-    lazy var buttonTextTitle:UILabel = {
-        let title = UILabel()
+    lazy var buttonTextTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Button text"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
     lazy var buttonTextTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.borderStyle = .line
         textField.placeholder = "Button text"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
         textField.delegate = self
         textField.tag = 1
+        textField.setUpTextField()
         return textField
     }()
     
@@ -74,26 +67,19 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // button color
-    lazy var colorTitle:UILabel = {
-        let title = UILabel()
+    lazy var colorTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Button text color"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
     lazy var colorTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.borderStyle = .line
         textField.placeholder = "Button color"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
         textField.delegate = self
         textField.tag = 2
+        textField.setUpTextField()
         return textField
     }()
     
@@ -112,26 +98,19 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // BACKGROUND
-    lazy var backgroundTitle: UILabel = {
-        let title = UILabel()
+    lazy var backgroundTitle: TitleLabel = {
+        let title = TitleLabel()
         title.text = "Button backgound color"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
     lazy var backgroundTextField:TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.borderStyle = .line
         textField.placeholder = "Background color"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
         textField.delegate = self
         textField.tag = 3
+        textField.setUpTextField()
         return textField
     }()
     
@@ -150,41 +129,29 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // WIDTH
-    lazy var widthTitle:UILabel = {
-        let title = UILabel()
+    lazy var widthTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Button width"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
         
     lazy var widthButton = dropDownBtn()
 
-    lazy var heightTitle:UILabel = {
-        let title = UILabel()
+    lazy var heightTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Button height"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
        
     lazy var heightButton = dropDownBtn()
     
     // BORDER
-    lazy var borderTitle:UILabel = {
-        let title = UILabel()
+    lazy var borderTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Border"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
 
@@ -224,24 +191,17 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // BORDER COLOR
-    lazy var BorderColorTitle:UILabel = {
-        let title = UILabel()
+    lazy var BorderColorTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Border Color"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
     lazy var BorderColorTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.borderStyle = .line
+        textField.setUpTextField()
         textField.placeholder = "Border Color"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
         textField.delegate = self
         textField.tag = 8
         return textField
@@ -261,25 +221,18 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         return stackView
     }()
     
-    lazy var BorderRadiusTitle:UILabel = {
-        let title = UILabel()
+    lazy var BorderRadiusTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Border Radius"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
 
     
     lazy var BorderRadiusTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.borderStyle = .line
+        textField.setUpTextField()
         textField.placeholder = "Border Radius"
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
         textField.delegate = self
         textField.tag = 9
         return textField
@@ -299,14 +252,10 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // left icon
-    lazy var leftIconTitle:UILabel = {
-        let title = UILabel()
+    lazy var leftIconTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Left icon"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
@@ -318,14 +267,10 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     
     // right icon
     
-    lazy var rightIconTitle:UILabel = {
-        let title = UILabel()
+    lazy var rightIconTitle:TitleLabel = {
+        let title = TitleLabel()
         title.text = "Right icon"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont.boldSystemFont(ofSize: 16.0)
-        let attributes :Dictionary = [NSAttributedString.Key.font : font]
-        var attrString = NSAttributedString(string: title.text!, attributes:attributes)
-        title.attributedText = attrString
+        title.setUpLabel()
         return title
     }()
     
@@ -336,8 +281,8 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     }()
     
     // Tint color
-    lazy var iconTintColorTitle:UILabel = {
-        let title = UILabel()
+    lazy var iconTintColorTitle:TitleLabel = {
+        let title = TitleLabel()
         return title
     }()
     
@@ -370,11 +315,20 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         return result
     }()
     
+    lazy var addButton:customButton = {
+        let btn = customButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle(withTitle: "Add Button")
+        btn.layer.cornerRadius = 5
+        btn.backgroundColor = hexStringToUIColor(hex: "#C8EFF7")
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
+        scrollView.isUserInteractionEnabled = true
         configureScrollView()
         configureTitle()
         configureButtonTextStackView()
@@ -390,6 +344,7 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         configureRightIconDropdown()
         configureIconTintColorStackView()
         configureResultView()
+        configureAddButton()
     }
     
     private func configureScrollView(){
@@ -406,7 +361,7 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         self.scrollView.layoutIfNeeded()
         self.scrollView.setNeedsLayout()
         
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 2000)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 2100)
     }
     
     private func configureTitle(){
@@ -459,18 +414,9 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         
         scrollView.addSubview(widthTitle)
         scrollView.addSubview(widthButton)
-        
-        widthButton.translatesAutoresizingMaskIntoConstraints = false
-        widthButton.layer.borderWidth = 1
-        widthButton.title.font = UIFont.systemFont(ofSize: 14)
-        widthButton.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-        
+
         widthButton.textfield.tag = 4
         widthButton.textfield.delegate = self
-        let origimage = UIImage(named:"dropdown")?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
-        widthButton.setImageToRightIcon(withImage: tintedImage!, tintColor: hexStringToUIColor(hex: "#000000"), backgroundColor: hexStringToUIColor(hex: "#FFFFFF"))
-        
         
         NSLayoutConstraint.activate([
             widthTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 30),
@@ -491,18 +437,9 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         scrollView.addSubview(heightTitle)
         scrollView.addSubview(heightButton)
         
-        heightButton.translatesAutoresizingMaskIntoConstraints = false
-        heightButton.layer.borderWidth = 1
-        heightButton.title.font = UIFont.systemFont(ofSize: 14)
-        heightButton.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
+
         heightButton.textfield.delegate = self
         heightButton.textfield.tag = 5
-        
-        let origimage = UIImage(named:"dropdown")?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
-        heightButton.setImageToRightIcon(withImage: tintedImage!, tintColor: hexStringToUIColor(hex: "#000000"), backgroundColor: hexStringToUIColor(hex: "#FFFFFF"))
-    
-        
         
         NSLayoutConstraint.activate([
             heightTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 30),
@@ -521,19 +458,11 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     private func configureBorderButton(){
         
         scrollView.addSubview(borderTitle)
-        
         scrollView.addSubview(borderButton)
-        borderButton.translatesAutoresizingMaskIntoConstraints = false
-        borderButton.layer.borderWidth = 1
-        borderButton.title.font = UIFont.systemFont(ofSize: 14)
-        borderButton.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
+        
         borderButton.textfield.tag = 6
         borderButton.textfield.delegate = self
         borderButton.updateBorderDelegate = self
-        
-        let origimage = UIImage(named:"dropdown")
-        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
-        borderButton.setImageToRightIcon(withImage: tintedImage!, tintColor:hexStringToUIColor(hex: "#000000"), backgroundColor: hexStringToUIColor(hex: "#FFFFFF"))
         
         borderButton.setTitle(withTitle: "Yes")
         borderButton.dropView.dropDownOptions = ["No"]
@@ -542,7 +471,6 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             
             borderTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30),
             borderTitle.topAnchor.constraint(equalTo: heightButton.bottomAnchor, constant: 50),
-            
             
             borderButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30),
             borderButton.topAnchor.constraint(equalTo: borderTitle.bottomAnchor, constant: 15),
@@ -572,12 +500,9 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             let attrString = NSAttributedString(string: BorderDashPatternTitle.text!, attributes:attributes)
             BorderDashPatternTitle.attributedText = attrString
             
-            BorderDashPatternTextField.borderStyle = .line
+            BorderDashPatternTextField.setUpTextField()
             BorderDashPatternTextField.placeholder = "Border Dash Pattern"
-            BorderDashPatternTextField.backgroundColor = .white
-            BorderDashPatternTextField.layer.borderWidth = 1
-            BorderDashPatternTextField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-            
+
             NSLayoutConstraint.activate([
                 BorderDashPatternStackView.topAnchor.constraint(equalTo: borderButton.bottomAnchor, constant: 50),
                 BorderDashPatternStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30),
@@ -646,15 +571,9 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         scrollView.addSubview(leftIconTitle)
         
         scrollView.addSubview(leftIconDropDown)
-        leftIconDropDown.translatesAutoresizingMaskIntoConstraints = false
-        leftIconDropDown.layer.borderWidth = 1
-        leftIconDropDown.title.font = UIFont.systemFont(ofSize: 14)
-        leftIconDropDown.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-        
-        let origimage = UIImage(named:"dropdown")
-        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
-        leftIconDropDown.setImageToRightIcon(withImage: tintedImage!, tintColor: hexStringToUIColor(hex: "#000000"), backgroundColor: hexStringToUIColor(hex: "#FFFFFF"))
+
         leftIconDropDown.setTitle(withTitle: "No")
+        
         leftIconDropDown.option.sendImageDelegate = self
         leftIconDropDown.updateImageDelegate = self
         
@@ -674,17 +593,8 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     private func configureRightIconDropdown(){
         
         scrollView.addSubview(rightIconTitle)
-        
         scrollView.addSubview(RightIconDropDown)
-        RightIconDropDown.translatesAutoresizingMaskIntoConstraints = false
-        RightIconDropDown.layer.borderWidth = 1
-        RightIconDropDown.title.font = UIFont.systemFont(ofSize: 14)
-        RightIconDropDown.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
-        
-        let origimage = UIImage(named:"dropdown")
-        let tintedImage = origimage?.withRenderingMode(.alwaysTemplate)
-        RightIconDropDown.setImageToRightIcon(withImage: tintedImage!, tintColor: hexStringToUIColor(hex: "#000000"), backgroundColor: hexStringToUIColor(hex: "#FFFFFF"))
-        
+    
         RightIconDropDown.setTitle(withTitle: "No")
         
         RightIconDropDown.option.sendImageDelegate = self
@@ -729,16 +639,11 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             iconTintColorStackView.deactivateAllConstraints()
             
             iconTintColorTitle.text = "Icon Tint Color"
-            let font = UIFont.boldSystemFont(ofSize: 16.0)
-            let attributes :Dictionary = [NSAttributedString.Key.font : font]
-            let attrString = NSAttributedString(string: iconTintColorTitle.text!, attributes:attributes)
-            iconTintColorTitle.attributedText = attrString
+            iconTintColorTitle.setUpLabel()
             
-            iconTintColorTextField.borderStyle = .line
+            iconTintColorTextField.setUpTextField()
             iconTintColorTextField.placeholder = "Icon Tint Color"
-            iconTintColorTextField.backgroundColor = .white
-            iconTintColorTextField.layer.borderWidth = 1
-            iconTintColorTextField.layer.borderColor = hexStringToCGColor(hex: "#DADADA")
+
             
             NSLayoutConstraint.activate([
                 iconTintColorStackView.topAnchor.constraint(equalTo: RightIconDropDown.bottomAnchor, constant: 60),
@@ -784,11 +689,26 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             resultView.heightAnchor.constraint(equalToConstant: 120),
             buttonResult.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
             buttonResult.centerYAnchor.constraint(equalTo: resultView.centerYAnchor),
-//            buttonResult.widthAnchor.constraint(equalToConstant: 100),
-//            buttonResult.heightAnchor.constraint(equalToConstant: 50),
         ])
         resultView.backgroundColor = hexStringToUIColor(hex: "#EDEDED")
-//        buttonResult.backgroundColor = .blue
+    }
+        
+    func configureAddButton(){
+        scrollView.addSubview(addButton)
+        
+        NSLayoutConstraint.activate([
+            addButton.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
+            addButton.topAnchor.constraint(equalTo: resultView.bottomAnchor),
+            addButton.widthAnchor.constraint(equalToConstant: 150),
+            addButton.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        addButton.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(buttonTapped))
+        addButton.contentView.addGestureRecognizer(tap)
+        self.view.layoutIfNeeded()
+        self.scrollView.layoutIfNeeded()
+        self.addButton.contentView.layoutIfNeeded()
         
     }
     
@@ -819,10 +739,8 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
                       layer.removeFromSuperlayer()
                  }
              }
-
-            removeImage(view: buttonResult.leftIcon, tag: 100)
-            removeImage(view: buttonResult.rightIcon, tag: 200)
         
+            buttonResult.removeImage()
             
             if res.buttonText != nil {
                 self.buttonResult.setTitle(withTitle: res.buttonText!)
@@ -847,14 +765,12 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             }
             
             if res.borderColor != nil {
-                self.buttonResult.layer.borderWidth = 1
                 self.buttonResult.layer.borderColor = hexStringToCGColor(hex: res.borderColor!)
             }
             
             if res.borderRadius != nil {
                 buttonResult.layer.cornerRadius = CGFloat(res.borderRadius!)
             }
-            
             
             if res.leftIcon != nil {
                 
@@ -888,11 +804,8 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             }
             
             if res.tintColor != nil {
-                addTintColor(view: buttonResult.leftIcon, tag: 100, tintColor: res.tintColor!)
-                addTintColor(view: buttonResult.rightIcon, tag: 200, tintColor: res.tintColor!)
+                buttonResult.addTintColor(tintColor: res.tintColor!)
             }
-            
-            
         }
     }
         
@@ -938,49 +851,20 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         updateButton()
     }
     
-    
-    func removeImage(view:UIView, tag: Int){
-        if let selectedView = view.viewWithTag(tag) {
-            selectedView.removeFromSuperview()
-        }
-    }
-    
-    func addTintColor(view:UIView, tag: Int, tintColor: String){
-        if let selectedView = view.viewWithTag(tag) {
-            selectedView.tintColor = hexStringToUIColor(hex: tintColor)
-        }
-    }
-    
     func update() {
         updateButton()
     }
     
-}
-
-
-
-class TextFieldWithPadding: UITextField {
-    
-    
-    var textPadding = UIEdgeInsets(
-        top: 15,
-        left: 15,
-        bottom: 15,
-        right: 15
-    )
-
-    
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = super.textRect(forBounds: bounds)
-        return rect.inset(by: textPadding)
+    @objc func buttonTapped(){
+        addButton.showAnimation {
+            self.buttonOptionViewModel.saveButtonConfig(buttonText: self.buttonText, buttonTextColor: self.buttonTextColor, buttonBackgroundColor: self.buttonBackgroundColor, buttonWidth: self.buttonWidth, buttonHeight: self.buttonHeight, border: self.border, borderDashPattern: self.borderDashPattern, borderColor: self.borderColor, borderRadius: self.borderRadius, leftIcon: self.leftIcon, rightIcon: self.rightIcon, tintColor: self.iconTintColor) {
+                
+                    let buttonListVC = ButtonListViewController()
+                    self.navigationController?.pushViewController(buttonListVC, animated: true)
+            }
+            
+        }
     }
-
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = super.editingRect(forBounds: bounds)
-        return rect.inset(by: textPadding)
-    }
-    
-    
 }
 
 extension UIView {
