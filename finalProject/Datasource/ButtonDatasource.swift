@@ -26,8 +26,6 @@ class ButtonTableViewDataSource<CELL : UITableViewCell,T> : NSObject, UITableVie
         items.count
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CELL
@@ -38,10 +36,35 @@ class ButtonTableViewDataSource<CELL : UITableViewCell,T> : NSObject, UITableVie
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let buttonToRemove = self.items[indexPath.row]
+            let buttonToRemove = self.items[indexPath.row] as! CustomButton
+            
+            let userDefaults = UserDefaults.standard
+            var arrID = userDefaults.object(forKey: "ID") as? [String] ?? []
+            
+            if buttonToRemove.identifier != nil {
+                
+                if let index = arrID.firstIndex(of: buttonToRemove.identifier!) {
+                    arrID.remove(at: index)
+                    userDefaults.set(arrID, forKey: "ID")
+                }
+                
+                var arrayToRemove = userDefaults.object(forKey: "idToRemove") as? [String] ?? []
+                arrayToRemove.append(buttonToRemove.identifier!)
+                userDefaults.set(arrayToRemove, forKey: "idToRemove")
+            }
+            
+//            if let index = arrID.firstIndex(of: buttonToRemove.identifier!) {
+//                arrID.remove(at: index)
+//                userDefaults.set(arrID, forKey: "ID")
+//            }
+//
+//            var arrayToRemove = userDefaults.object(forKey: "idToRemove") as? [String] ?? []
+//            arrayToRemove.append(buttonToRemove.identifier!)
+//            userDefaults.set(arrayToRemove, forKey: "idToRemove")
             
             let buttonListViewModel = ButtonListViewModel()
-            buttonListViewModel.deleteButton(button: buttonToRemove as! CustomButton)
+            buttonListViewModel.deleteButton(button: buttonToRemove)
+            
             
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

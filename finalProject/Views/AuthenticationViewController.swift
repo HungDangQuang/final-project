@@ -131,6 +131,20 @@ class AuthenticationViewController: UIViewController {
         authenticationViewModel = AuthenticationViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let status = UserDefaults.standard.integer(forKey: "Status")
+        if status == 1 {
+            self.pwdStackView.alpha = 0
+            self.usernameStackView.alpha = 0
+            self.loginButton.alpha = 0
+            self.synButton.alpha = 1
+
+        }
+        
+    }
+    
     func configureLogo(){
         self.view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
@@ -236,7 +250,15 @@ class AuthenticationViewController: UIViewController {
     
     @objc func synData(){
         synButton.showAnimation {
-            self.authenticationViewModel.synData()
+            
+            self.authenticationViewModel.syncData()
+            
+            DispatchQueue.main.async {
+                let notification = UIAlertController(title: "Nofication", message: "The list of button has been updated", preferredStyle: .alert)
+                notification.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(notification, animated: true, completion: nil)
+            }
+            
         }
     }
     

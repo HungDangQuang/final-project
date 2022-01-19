@@ -11,11 +11,11 @@ class ViewController: UIViewController {
     
     var collectionView : UICollectionView!
     private var buttonConfigViewModel: ButtonConfigViewModel!
-//    private var datasource: ButtonConfigDatasource<ButtonCollectionViewCell, ButtonConfig>!
     private var datasource: ButtonConfigDatasource<ButtonCollectionViewCell, ButtonOption>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
         self.view.backgroundColor = .white
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right:20)
@@ -32,19 +32,13 @@ class ViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.7, constant: 0)
+            NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.5, constant: 0)
             ])
-
-        callToViewModelForUIUpdate()
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(pushToNextVC))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-    }
-    
-    @objc func pushToNextVC(){
-        let customButtonVC = CustomButtonViewController()
-        navigationController?.pushViewController(customButtonVC, animated: true)
+        self.tabBarController?.tabBar.barTintColor = .white
+        self.tabBarController?.tabBar.backgroundColor = .white
+        
+        callToViewModelForUIUpdate()
     }
     
     func callToViewModelForUIUpdate(){

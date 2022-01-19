@@ -34,8 +34,6 @@
 		11CB9C4927634ED300904A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CB9C4727634ED300904A91 /* LaunchScreen.storyboard */; };
 		11CB9C522763504200904A91 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9C512763504200904A91 /* CustomButton.swift */; };
 		11D18A552787D9CC007250F1 /* CustomButton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11D18A532787D9CB007250F1 /* CustomButton.xcdatamodeld */; };
-		11D18A612787E348007250F1 /* CustomButton+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D18A5F2787E348007250F1 /* CustomButton+CoreDataClass.swift */; };
-		11D18A622787E348007250F1 /* CustomButton+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D18A602787E348007250F1 /* CustomButton+CoreDataProperties.swift */; };
 		11D35A75278E6F7E0098DCBC /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A74278E6F7E0098DCBC /* TextFieldWithPadding.swift */; };
 		11D35A7A278E9A140098DCBC /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A79278E9A140098DCBC /* DropDownTableViewCell.swift */; };
 		11D35A7C278E9C780098DCBC /* dropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A7B278E9C780098DCBC /* dropDownView.swift */; };
@@ -44,6 +42,11 @@
 		11D35A82278E9E850098DCBC /* ButtonImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A81278E9E850098DCBC /* ButtonImageTableViewCell.swift */; };
 		11D35A85278EB6640098DCBC /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A84278EB6640098DCBC /* CoreDataService.swift */; };
 		11D35A87278ECC3D0098DCBC /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A86278ECC3D0098DCBC /* FirebaseService.swift */; };
+		11D35A8B27912D1F0098DCBC /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A8A27912D1F0098DCBC /* BaseTabbarController.swift */; };
+		11D35A8D2794274D0098DCBC /* ButtonImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A8C2794274C0098DCBC /* ButtonImageService.swift */; };
+		11D35A8F2794286A0098DCBC /* ButtonImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A8E2794286A0098DCBC /* ButtonImageViewModel.swift */; };
+		11D35A9127951F3C0098DCBC /* CustomButton+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A9027951F3C0098DCBC /* CustomButton+CoreDataClass.swift */; };
+		11D35A9327951F420098DCBC /* CustomButton+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D35A9227951F420098DCBC /* CustomButton+CoreDataProperties.swift */; };
 		11F816C327804E8800ECF498 /* CustomButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11304EE62775ADC8005F8258 /* CustomButtonViewController.swift */; };
 		11FB12402779652900B06DF4 /* titleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB123F2779652900B06DF4 /* titleLabel.swift */; };
 		11FB124327799EA200B06DF4 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB124227799EA200B06DF4 /* DropDown.swift */; };
@@ -81,8 +84,6 @@
 		11CB9C4A27634ED300904A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CB9C512763504200904A91 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		11D18A542787D9CC007250F1 /* CustomButton.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CustomButton.xcdatamodel; sourceTree = "<group>"; };
-		11D18A5F2787E348007250F1 /* CustomButton+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomButton+CoreDataClass.swift"; sourceTree = "<group>"; };
-		11D18A602787E348007250F1 /* CustomButton+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomButton+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		11D35A74278E6F7E0098DCBC /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		11D35A79278E9A140098DCBC /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		11D35A7B278E9C780098DCBC /* dropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropDownView.swift; sourceTree = "<group>"; };
@@ -91,6 +92,11 @@
 		11D35A81278E9E850098DCBC /* ButtonImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageTableViewCell.swift; sourceTree = "<group>"; };
 		11D35A84278EB6640098DCBC /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		11D35A86278ECC3D0098DCBC /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		11D35A8A27912D1F0098DCBC /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
+		11D35A8C2794274C0098DCBC /* ButtonImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageService.swift; sourceTree = "<group>"; };
+		11D35A8E2794286A0098DCBC /* ButtonImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageViewModel.swift; sourceTree = "<group>"; };
+		11D35A9027951F3C0098DCBC /* CustomButton+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CustomButton+CoreDataClass.swift"; path = "/Users/quanghung/Documents/Internship/Task/week 4/finalProject/finalProject/CustomButton+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		11D35A9227951F420098DCBC /* CustomButton+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CustomButton+CoreDataProperties.swift"; path = "/Users/quanghung/Documents/Internship/Task/week 4/finalProject/finalProject/CustomButton+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		11FB123F2779652900B06DF4 /* titleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleLabel.swift; sourceTree = "<group>"; };
 		11FB124227799EA200B06DF4 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		3A81848598E285274F854F58 /* Pods-finalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalProject.release.xcconfig"; path = "Target Support Files/Pods-finalProject/Pods-finalProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				11AC7C66278C76DE00981878 /* AuthenticationService.swift */,
 				11D35A84278EB6640098DCBC /* CoreDataService.swift */,
 				11D35A86278ECC3D0098DCBC /* FirebaseService.swift */,
+				11D35A8C2794274C0098DCBC /* ButtonImageService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 				1107EF6E27832A8D00040C96 /* ButtonOptionViewModel.swift */,
 				1116F6C82789DE6600D56D28 /* ButtonListViewModel.swift */,
 				11AC7C64278C76C500981878 /* AuthenticationViewModel.swift */,
+				11D35A8E2794286A0098DCBC /* ButtonImageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 		11462B012771AB23001D3B0D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11D35A8927912C4A0098DCBC /* Tabbar */,
 				11CB9C4027634ECE00904A91 /* ViewController.swift */,
 				11304EE62775ADC8005F8258 /* CustomButtonViewController.swift */,
 				1116F6C627899C8800D56D28 /* ButtonListViewController.swift */,
@@ -212,8 +221,8 @@
 				11D35A83278E9EF40098DCBC /* CustomComponents */,
 				11CB9C3C27634ECE00904A91 /* AppDelegate.swift */,
 				11CB9C3E27634ECE00904A91 /* SceneDelegate.swift */,
-				11D18A602787E348007250F1 /* CustomButton+CoreDataProperties.swift */,
-				11D18A5F2787E348007250F1 /* CustomButton+CoreDataClass.swift */,
+				11D35A9027951F3C0098DCBC /* CustomButton+CoreDataClass.swift */,
+				11D35A9227951F420098DCBC /* CustomButton+CoreDataProperties.swift */,
 				11CB9C4227634ECE00904A91 /* Main.storyboard */,
 				11CB9C4527634ED300904A91 /* Assets.xcassets */,
 				11AC7C62278C45F100981878 /* GoogleService-Info.plist */,
@@ -285,6 +294,14 @@
 				1116F6CA2789E37400D56D28 /* ButtonDatasource.swift */,
 			);
 			path = Datasource;
+			sourceTree = "<group>";
+		};
+		11D35A8927912C4A0098DCBC /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				11D35A8A27912D1F0098DCBC /* BaseTabbarController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		11FB124127799E7E00B06DF4 /* DropDown */ = {
@@ -435,7 +452,6 @@
 				110DE23D276734EF0027A839 /* customLabel.swift in Sources */,
 				11FB12402779652900B06DF4 /* titleLabel.swift in Sources */,
 				11AC7C5F278BD01D00981878 /* AuthenticationViewController.swift in Sources */,
-				11D18A622787E348007250F1 /* CustomButton+CoreDataProperties.swift in Sources */,
 				11D18A552787D9CC007250F1 /* CustomButton.xcdatamodeld in Sources */,
 				11D35A85278EB6640098DCBC /* CoreDataService.swift in Sources */,
 				11D35A75278E6F7E0098DCBC /* TextFieldWithPadding.swift in Sources */,
@@ -446,9 +462,10 @@
 				11462AF82770788D001D3B0D /* ButtonConfigViewModel.swift in Sources */,
 				11CB9C3D27634ECE00904A91 /* AppDelegate.swift in Sources */,
 				11304EE527759D64005F8258 /* GetButtonConfigService.swift in Sources */,
+				11D35A8B27912D1F0098DCBC /* BaseTabbarController.swift in Sources */,
 				110E631D2780B32900B0BE3C /* ButtonDropDown.swift in Sources */,
-				11D18A612787E348007250F1 /* CustomButton+CoreDataClass.swift in Sources */,
 				11D35A7A278E9A140098DCBC /* DropDownTableViewCell.swift in Sources */,
+				11D35A9327951F420098DCBC /* CustomButton+CoreDataProperties.swift in Sources */,
 				11462AFB27707A24001D3B0D /* Box.swift in Sources */,
 				11AC7C67278C76DE00981878 /* AuthenticationService.swift in Sources */,
 				11AC7C65278C76C500981878 /* AuthenticationViewModel.swift in Sources */,
@@ -457,13 +474,16 @@
 				11D35A7C278E9C780098DCBC /* dropDownView.swift in Sources */,
 				11CB9C3F27634ECE00904A91 /* SceneDelegate.swift in Sources */,
 				11D35A7E278E9CCB0098DCBC /* OptionDropDownButton.swift in Sources */,
+				11D35A9127951F3C0098DCBC /* CustomButton+CoreDataClass.swift in Sources */,
 				1116F6C727899C8800D56D28 /* ButtonListViewController.swift in Sources */,
+				11D35A8F2794286A0098DCBC /* ButtonImageViewModel.swift in Sources */,
 				1116F6C92789DE6600D56D28 /* ButtonListViewModel.swift in Sources */,
 				11462AFD2770892E001D3B0D /* ButtonConfigDatasource.swift in Sources */,
 				113AB9ED277B03850000DFC9 /* BorderDropDown.swift in Sources */,
 				1116F6CB2789E37400D56D28 /* ButtonDatasource.swift in Sources */,
 				11C46EBC2783083300DDC89E /* buttonOption.swift in Sources */,
 				11462B0027708AB7001D3B0D /* ButtonCollectionViewCell.swift in Sources */,
+				11D35A8D2794274D0098DCBC /* ButtonImageService.swift in Sources */,
 				11FB124327799EA200B06DF4 /* DropDown.swift in Sources */,
 				11D35A82278E9E850098DCBC /* ButtonImageTableViewCell.swift in Sources */,
 			);

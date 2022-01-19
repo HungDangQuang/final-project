@@ -10,11 +10,12 @@
         <attribute name="button_text" optional="YES" attributeType="String"/>
         <attribute name="button_text_color" optional="YES" attributeType="String"/>
         <attribute name="button_width" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="left_icon" optional="YES" attributeType="String"/>
         <attribute name="right_icon" optional="YES" attributeType="String"/>
         <attribute name="tint_color" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CustomButton" positionX="-63" positionY="-18" width="128" height="209"/>
+        <element name="CustomButton" positionX="-63" positionY="-18" width="128" height="224"/>
     </elements>
 </model>

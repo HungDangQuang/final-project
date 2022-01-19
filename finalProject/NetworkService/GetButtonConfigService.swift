@@ -26,7 +26,13 @@ class ButtonConfigService: NSObject {
         
             ButtonOption(buttonText: "Button", buttonTextColor: "#F3F1F9", buttonBackgroundColor: "#4FC3C0", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: "less", rightIcon: "greater", tintColor: "#F3F1F9", iconBackgroundColor: nil),
         
-            ButtonOption(buttonText: "Button", buttonTextColor: "#6AA7F6", buttonBackgroundColor: "#F3F1F9", buttonWidth: nil, buttonHeight: nil, border: 1, borderDashPattern: nil, borderColor: "#6AA7F6", borderRadius: 5, leftIcon: nil, rightIcon: nil, tintColor: nil, iconBackgroundColor: nil)]
+            ButtonOption(buttonText: "Button", buttonTextColor: "#6AA7F6", buttonBackgroundColor: "#F3F1F9", buttonWidth: nil, buttonHeight: nil, border: 1, borderDashPattern: nil, borderColor: "#6AA7F6", borderRadius: 5, leftIcon: nil, rightIcon: nil, tintColor: nil, iconBackgroundColor: nil),
+        
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#FFFFFF", buttonWidth: nil, buttonHeight: nil, border: 2, borderDashPattern: nil, borderColor: "#72A6F8", borderRadius: 4, leftIcon: "card", rightIcon: nil, tintColor: "#72A6F8", iconBackgroundColor: "#FFFFFF"),
+        
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#FFFFFF", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: "2,3", borderColor: "#72A6F8", borderRadius: 5, leftIcon: "pen", rightIcon: nil, tintColor: "#72A6F8", iconBackgroundColor: "#FFFFFF"),
+        
+            ButtonOption(buttonText: nil, buttonTextColor: nil, buttonBackgroundColor: "#E86667", buttonWidth: nil, buttonHeight: nil, border: nil, borderDashPattern: nil, borderColor: nil, borderRadius: 5, leftIcon: "comment", rightIcon: nil, tintColor: "#FFFFFF", iconBackgroundColor: "#E86667")]
         
         completionHandler(configArr)
     }

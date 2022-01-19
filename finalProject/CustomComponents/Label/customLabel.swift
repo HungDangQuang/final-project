@@ -63,6 +63,11 @@ class customLabel:UILabel {
 //        self.attributedText = attributedString
 //        backgroundColor = .blue
         
+        lineBreakMode = NSLineBreakMode.byWordWrapping
+        numberOfLines = 0
+        preferredMaxLayoutWidth = 100
+        font = UIFont.systemFont(ofSize: 14)
+        
     }
     
 }

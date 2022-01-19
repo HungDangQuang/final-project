@@ -16,27 +16,24 @@ class ButtonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
         tableView = UITableView()
+        tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: ButtonTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
         tableView.delegate = self
-        
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(pushToAuthenticationVC))
-        swipe.direction = .left
-        self.view.addGestureRecognizer(swipe)
-        
         self.view.addSubview(tableView)
         setUpTablbleViewLayout()
-        
-        callToViewModelForUIUpdate()
-        
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        tableView.frame = view.bounds
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        callToViewModelForUIUpdate()
+    }
+     
     
     func setUpTablbleViewLayout(){
         NSLayoutConstraint.activate([
@@ -109,15 +106,18 @@ class ButtonListViewController: UIViewController {
                 cell.button.addTintColor(tintColor: res.tint_color!)
             }
             
+            if res.identifier != nil {
+                cell.button.identifier = res.identifier!
+            }
             
-            
+            cell.button.layoutIfNeeded()
         })
         
         DispatchQueue.main.async {
             self.tableView.dataSource = self.datasource
             self.tableView.reloadData()
         }
-        
+
     }
     
     @objc func pushToAuthenticationVC(){
@@ -127,7 +127,12 @@ class ButtonListViewController: UIViewController {
 }
 
 extension ButtonListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layoutIfNeeded()
     }
 }

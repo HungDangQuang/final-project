@@ -49,6 +49,8 @@ class customButton: UIControl{
         return contentView
     }()
     
+    var identifier = ""
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addTarget(self, action: #selector(printHelloWorld), for: .touchUpInside)
@@ -93,9 +95,10 @@ class customButton: UIControl{
         imgView.trailingAnchor.constraint(equalTo: self.leftIcon.trailingAnchor, constant: -15).isActive = true
         imgView.topAnchor.constraint(equalTo: self.leftIcon.topAnchor, constant: 15).isActive = true
         imgView.bottomAnchor.constraint(equalTo: self.leftIcon.bottomAnchor, constant: -15).isActive = true
-//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+////        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         leftIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         leftIcon.widthAnchor.constraint(equalTo: leftIcon.heightAnchor).isActive = true
+        
         self.contentView.layoutIfNeeded()
     }
     
@@ -111,9 +114,10 @@ class customButton: UIControl{
         imgView.trailingAnchor.constraint(equalTo: self.rightIcon.trailingAnchor, constant: -15).isActive = true
         imgView.topAnchor.constraint(equalTo: self.rightIcon.topAnchor, constant: 15).isActive = true
         imgView.bottomAnchor.constraint(equalTo: self.rightIcon.bottomAnchor, constant: -15).isActive = true
-//        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+////        imgView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         rightIcon.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         rightIcon.widthAnchor.constraint(equalTo: rightIcon.heightAnchor).isActive = true
+
         self.contentView.layoutIfNeeded()
     }
         

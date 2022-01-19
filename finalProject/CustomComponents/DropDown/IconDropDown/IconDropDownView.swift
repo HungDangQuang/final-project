@@ -10,11 +10,13 @@ import UIKit
 
 class IcondropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     
-    var dropDownOptions = ["close-button", "dropdown"]
+    var dropDownOptions:[String]!
     
     var tableView = UITableView()
     
     var delegate : dropDownProtocol!
+    
+    var buttonImageViewModel = ButtonImageViewModel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +37,9 @@ class IcondropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
         tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
+        buttonImageViewModel.arrButton.bind { res in
+            self.dropDownOptions = res
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

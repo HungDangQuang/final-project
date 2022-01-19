@@ -1,8 +1,8 @@
 //
 //  CustomButton+CoreDataClass.swift
-//  finalProject
+//  
 //
-//  Created by QUANG HUNG on 07/Jan/2022.
+//  Created by QUANG HUNG on 17/Jan/2022.
 //
 //
 

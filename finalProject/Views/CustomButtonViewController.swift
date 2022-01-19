@@ -2,6 +2,10 @@
 import UIKit
 import CoreData
 
+protocol reloadTableViewPrototcol{
+    func reloadTableView()
+}
+
 class CustomButtonViewController: UIViewController, updateUI, updateTintColorProtocol, UITextFieldDelegate, sendImageNameProtocol, updateButtonProtocol {
     
     var buttonText: String?
@@ -19,11 +23,16 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
     
     let buttonOptionViewModel = ButtonOptionViewModel()
     
+    var reloadTableViewDelegate: reloadTableViewPrototcol!
+    
+    
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         scrollView.isScrollEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        
         return scrollView
     }()
     
@@ -345,10 +354,14 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         configureIconTintColorStackView()
         configureResultView()
         configureAddButton()
+        
+        self.tabBarController?.tabBar.barTintColor = .white
+        self.tabBarController?.tabBar.backgroundColor = .white
     }
     
     private func configureScrollView(){
         view.addSubview(scrollView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -731,15 +744,15 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         
         buttonOptionViewModel.updateButton(buttonText: buttonText, buttonTextColor: buttonTextColor, buttonBackgroundColor: buttonBackgroundColor, buttonWidth: buttonWidth, buttonHeight: buttonHeight, border: border, borderDashPattern: borderDashPattern, borderColor: borderColor, borderRadius: borderRadius, leftIcon: leftIcon, rightIcon: rightIcon, tintColor: iconTintColor) { [self] res in
             
-            print("sub layers:\(buttonResult.layer.sublayers?.count)")
+//            print("sub layers:\(buttonResult.layer.sublayers?.count)")
             
             for layer in buttonResult.layer.sublayers! {
-                print("layer name:\(layer.name)")
+//                print("layer name:\(layer.name)")
                  if layer.name == "dash" {
                       layer.removeFromSuperlayer()
                  }
              }
-        
+         
             buttonResult.removeImage()
             
             if res.buttonText != nil {
@@ -859,8 +872,10 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         addButton.showAnimation {
             self.buttonOptionViewModel.saveButtonConfig(buttonText: self.buttonText, buttonTextColor: self.buttonTextColor, buttonBackgroundColor: self.buttonBackgroundColor, buttonWidth: self.buttonWidth, buttonHeight: self.buttonHeight, border: self.border, borderDashPattern: self.borderDashPattern, borderColor: self.borderColor, borderRadius: self.borderRadius, leftIcon: self.leftIcon, rightIcon: self.rightIcon, tintColor: self.iconTintColor) {
                 
-                    let buttonListVC = ButtonListViewController()
-                    self.navigationController?.pushViewController(buttonListVC, animated: true)
+                let notification = UIAlertController(title: "Notification", message: "Button is successfully added", preferredStyle: .alert)
+                notification.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(notification, animated: true, completion: nil)
+                
             }
             
         }

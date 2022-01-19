@@ -11,12 +11,12 @@ import UIKit
 
 class CoreDataService {
     
-    func save( buttonText: String?, buttonTextColor: String?, buttonBackgroundColor: String?, buttonWidth: Int?, buttonHeight: Int?, border: Int?, borderDashPattern: String?, borderColor: String?, borderRadius: Int?, leftIcon: String?, rightIcon: String?, tintColor: String?){
+    func save( buttonText: String?, buttonTextColor: String?, buttonBackgroundColor: String?, buttonWidth: Int?, buttonHeight: Int?, border: Int?, borderDashPattern: String?, borderColor: String?, borderRadius: Int?, leftIcon: String?, rightIcon: String?, tintColor: String?, identifier: String?, completion:@escaping()->()){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 
         let managedContext = appDelegate.persistentContainer.viewContext
-                
+        
         let btn = CustomButton(context: managedContext)
         btn.button_text = buttonText
         btn.button_text_color = buttonTextColor
@@ -30,9 +30,19 @@ class CoreDataService {
         btn.left_icon = leftIcon
         btn.right_icon = rightIcon
         btn.tint_color = tintColor
+        btn.identifier = identifier
+        
         do {
                     
             try managedContext.save()
+//            let userDefaults = UserDefaults.standard
+//            var arrID = userDefaults.object(forKey: "ID") as? [String] ?? []
+//            arrID.append(btn.identifier!)
+            completion()
+//            print(arrID)
+            
+//            userDefaults.set(arrID, forKey: "ID")
+            
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -43,7 +53,26 @@ class CoreDataService {
         let managedContext = appDelegate.persistentContainer.viewContext
         do {
             let arrButton = try managedContext.fetch(CustomButton.fetchRequest())
+//            print(arrButton[0])
             completion(arrButton)
+        }
+        catch {
+            print("Could not fetch data")
+        }
+    }
+    
+    func fetchButtonWithCondition(condition: String,completion: @escaping([CustomButton])->()){
+        
+        let request: NSFetchRequest<CustomButton> = CustomButton.fetchRequest()
+        request.predicate = NSPredicate(format: "identifier == %@", condition)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        
+        do {
+            let button = try managedContext.fetch(request)
+            completion(button)
         }
         catch {
             print("Could not fetch data")
@@ -60,6 +89,16 @@ class CoreDataService {
         }
         catch {
             
+        }
+    }
+    
+    
+    func deleteAllData()
+    {
+        fetch { res in
+            for element in res {
+                self.delete(button: element)
+            }
         }
     }
 }

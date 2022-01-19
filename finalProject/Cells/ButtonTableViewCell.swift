@@ -10,8 +10,7 @@ import UIKit
 class ButtonTableViewCell: UITableViewCell {
     static let identifier = "ButtonTableViewCell"
     
-    let button = customButton()
-    
+    var button = customButton()
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -22,19 +21,39 @@ class ButtonTableViewCell: UITableViewCell {
         setUpLayout()
     }
     
+    override func prepareForReuse() {
+        button.title.text = nil
+        button.title.textColor = nil
+        button.backgroundColor = nil
+        button.layer.borderWidth = 0
+        button.layer.borderColor = nil
+        button.layer.cornerRadius = 0
+    
+        NSLayoutConstraint.deactivate(button.leftIcon.constraints)
+        NSLayoutConstraint.deactivate(button.rightIcon.constraints)
+    
+        button.removeImage()
+        
+        for layer in button.layer.sublayers! {
+//            print("layer name:\(layer.name)")
+             if layer.name == "dash" {
+                  layer.removeFromSuperlayer()
+             }
+         }
+    }
+    
     func setUpView(){
-        addSubview(button)
+        contentView.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.title.adjustsFontForContentSizeCategory = true
     }
     
     func setUpLayout() {
         NSLayoutConstraint.activate([
-
-            button.centerYAnchor.constraint(equalTo: centerYAnchor),
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
-            
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            self.contentView.heightAnchor.constraint(equalTo: button.heightAnchor, constant: 20)
         ])
     }
-    
     
 }

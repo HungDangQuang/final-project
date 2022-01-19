@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/quanghung/Documents/Internship/Task/week 4/finalProject/finalProject/CustomButton+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/quanghung/Documents/Internship/Task/week 4/finalProject/finalProject/CustomButton+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:finalProject.xcodeproj">
    </FileRef>
    <FileRef
