@@ -16,6 +16,7 @@ class ButtonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.isHidden = true
         
         tableView = UITableView()
         tableView.estimatedRowHeight = 150

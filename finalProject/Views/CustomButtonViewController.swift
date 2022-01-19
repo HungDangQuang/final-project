@@ -357,6 +357,7 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         
         self.tabBarController?.tabBar.barTintColor = .white
         self.tabBarController?.tabBar.backgroundColor = .white
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func configureScrollView(){

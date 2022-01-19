@@ -15,7 +15,7 @@ class BaseTabbarController: UITabBarController {
     
 //        tabBar.barTintColor = UIColor.gray
         delegate = self
-        
+        self.navigationController?.navigationBar.isHidden = true
         setUpTabbar()
 
 //        guard let items = self.tabBar.items else {
@@ -35,7 +35,7 @@ class BaseTabbarController: UITabBarController {
         tab1.tabBarItem.image = UIImage(named: "list")
         
         let tab2 = UINavigationController(rootViewController: CustomButtonViewController())
-        tab2.tabBarItem.image = UIImage(named: "customize")
+        tab2.tabBarItem.image = UIImage(named:  "customize")
         
         let tab3 = UINavigationController(rootViewController: ButtonListViewController())
         tab3.tabBarItem.image = UIImage(named: "list2")
