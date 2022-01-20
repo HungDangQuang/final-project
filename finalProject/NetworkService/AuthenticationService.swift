@@ -15,7 +15,8 @@ class AuthenticationService {
         Auth.auth().signIn(withEmail: email, password: password) { res, err in
             if let err = err {
                 print(err.localizedDescription)
-                completion(-1, "Something went wrong, please try again!")
+                completion(-1, "Wrong email or password")
+                return
             }
             if Auth.auth().currentUser != nil {
                 completion(1, "Successfully login")
@@ -23,6 +24,7 @@ class AuthenticationService {
             else {
                 completion(-1, "Email or password is wrong")
             }
+            return  
         }
     }
     

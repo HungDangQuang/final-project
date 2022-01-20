@@ -122,8 +122,11 @@ class customButton: UIControl{
     }
         
     func setTitle(withTitle title: String){
-        self.title.text = title
-        self.contentView.layoutIfNeeded()
+        let attributedString = NSMutableAttributedString(string: title)
+        self.title.attributedText = attributedString
+        self.title.numberOfLines = 2
+        self.title.lineBreakMode = .byTruncatingTail
+       
     }
     
     func setUpBackgorundColor(hexCode: String){

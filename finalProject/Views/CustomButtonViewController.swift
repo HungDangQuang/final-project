@@ -538,6 +538,7 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
         else {
             BorderDashPatternStackView.deactivateAllConstraints()
             BorderDashPatternTextField.text = nil
+            borderDashPattern = nil
             NSLayoutConstraint.activate([
                 BorderDashPatternStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30),
                 BorderDashPatternStackView.bottomAnchor.constraint(equalTo: borderButton.bottomAnchor),
@@ -554,6 +555,8 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
                 BorderDashPatternStackView.bottomAnchor.constraint(equalTo: borderButton.bottomAnchor),
             ])
         }
+        
+        updateButton()
     }
     
     private func configureBorderColorStackView(){
@@ -784,6 +787,10 @@ class CustomButtonViewController: UIViewController, updateUI, updateTintColorPro
             
             if res.borderRadius != nil {
                 buttonResult.layer.cornerRadius = CGFloat(res.borderRadius!)
+            }
+            
+            if res.borderRadius == nil {
+                buttonResult.layer.cornerRadius = 0
             }
             
             if res.leftIcon != nil {

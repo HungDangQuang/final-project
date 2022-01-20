@@ -126,8 +126,10 @@ class ViewController: UIViewController {
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
-
-
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray.cgColor
+        }
         var rgbValue:UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
 

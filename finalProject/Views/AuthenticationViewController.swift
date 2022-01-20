@@ -33,7 +33,7 @@ class AuthenticationViewController: UIViewController {
     
     lazy var usernameTextField: TextFieldWithPadding = {
        let textField = TextFieldWithPadding()
-        textField.placeholder = "Username"
+        textField.placeholder = "Email"
         textField.setUpTextField()
         return textField
     }()
@@ -225,6 +225,8 @@ class AuthenticationViewController: UIViewController {
     
             self.authenticationViewModel.authenticateUser(email: self.usernameTextField.text!, password: self.pwdTextField.text!) { stt, msg in
                
+                print(stt)
+                
                 if stt == 1 {
                     
                     self.pwdStackView.alpha = 0
@@ -254,7 +256,7 @@ class AuthenticationViewController: UIViewController {
             self.authenticationViewModel.syncData()
             
             DispatchQueue.main.async {
-                let notification = UIAlertController(title: "Nofication", message: "The list of button has been updated", preferredStyle: .alert)
+                let notification = UIAlertController(title: "Nofication", message: "The list of buttons has been updated", preferredStyle: .alert)
                 notification.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(notification, animated: true, completion: nil)
             }

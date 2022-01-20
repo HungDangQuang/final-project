@@ -50,9 +50,8 @@ class ButtonTableViewCell: UITableViewCell {
     
     func setUpLayout() {
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            self.contentView.heightAnchor.constraint(equalTo: button.heightAnchor, constant: 20)
+            button.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            button.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
         ])
     }
     

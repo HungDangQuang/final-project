@@ -59,15 +59,15 @@ class customLabel:UILabel {
 //        self.layoutMargins = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
 //        self.layoutMarginsDidChange()
         textAlignment = .center
-//        adjustsFontSizeToFitWidth = true
+        adjustsFontSizeToFitWidth = false
+//        lineBreakMode = .byTruncatingTail
+        numberOfLines = 1
+    
+        preferredMaxLayoutWidth = 100
 //        self.attributedText = attributedString
 //        backgroundColor = .blue
-        
-        lineBreakMode = NSLineBreakMode.byWordWrapping
-        numberOfLines = 0
-        preferredMaxLayoutWidth = 100
-        font = UIFont.systemFont(ofSize: 14)
-        
+//        font = UIFont.systemFont(ofSize: 14)
+            
     }
     
 }

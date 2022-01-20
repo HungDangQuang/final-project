@@ -19,8 +19,6 @@ class ButtonListViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         tableView = UITableView()
-        tableView.estimatedRowHeight = 150
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: ButtonTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
@@ -128,12 +126,8 @@ class ButtonListViewController: UIViewController {
 }
 
 extension ButtonListViewController: UITableViewDelegate {
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.layoutIfNeeded()
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
